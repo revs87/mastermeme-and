@@ -1,7 +1,9 @@
 package com.rvcoding.mastermeme.ui.yourmemes
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -109,8 +111,12 @@ fun FAButton(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MemeList(memes: List<Meme>) {
+fun MemeList(
+    memes: List<Meme>,
+    action: (Actions.YourMemes) -> Unit = {}
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -132,7 +138,11 @@ fun MemeList(memes: List<Meme>) {
                 Card(
                     modifier = Modifier
                         .padding(8.dp)
-                        .height(176.dp),
+                        .height(176.dp)
+                        .combinedClickable(
+                            onClick = { action.invoke(Actions.YourMemes.OnMemeClick(memes[index].id)) },
+                            onLongClick = { action.invoke(Actions.YourMemes.OnMemeLongClick(memes[index].id))  },
+                        ),
                 ) {
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)

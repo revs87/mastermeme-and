@@ -2,8 +2,10 @@ package com.rvcoding.mastermeme.di
 
 import com.rvcoding.mastermeme.common.DispatchersProvider
 import com.rvcoding.mastermeme.common.StandardDispatchersProvider
+import com.rvcoding.mastermeme.ui.yourmemes.YourMemesViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -37,5 +39,5 @@ val appModule = module {
     /**
      * ViewModels
      * */
-//    viewModel { YourAlarmsViewModel(get(), get(), get(), get()) }
+    viewModel { YourMemesViewModel() }
 }

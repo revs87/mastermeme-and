@@ -119,12 +119,11 @@ fun MemeList(memes: List<Meme>) {
         LazyVerticalGrid(
             columns = GridCells.Adaptive(176.dp),
 
-            // content padding
             contentPadding = PaddingValues(
-                start = 12.dp,
-                top = 16.dp,
-                end = 12.dp,
-                bottom = 16.dp
+                start = 8.dp,
+                top = 8.dp,
+                end = 8.dp,
+                bottom = 8.dp
             )
         ) {
             items(
@@ -132,7 +131,7 @@ fun MemeList(memes: List<Meme>) {
             ) { index ->
                 Card(
                     modifier = Modifier
-                        .padding(4.dp)
+                        .padding(8.dp)
                         .height(176.dp),
                 ) {
                     AsyncImage(

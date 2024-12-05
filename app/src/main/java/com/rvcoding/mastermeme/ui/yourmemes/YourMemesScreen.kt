@@ -117,7 +117,7 @@ fun MemeList(memes: List<Meme>) {
             .background(BackgroundContainer)
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Adaptive(200.dp),
+            columns = GridCells.Adaptive(176.dp),
 
             // content padding
             contentPadding = PaddingValues(

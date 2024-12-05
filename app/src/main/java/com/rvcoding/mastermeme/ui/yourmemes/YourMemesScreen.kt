@@ -1,9 +1,13 @@
 package com.rvcoding.mastermeme.ui.yourmemes
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -11,19 +15,23 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonColors
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.rvcoding.mastermeme.R
 import com.rvcoding.mastermeme.domain.Meme
 import com.rvcoding.mastermeme.domain.navigation.Actions
 import com.rvcoding.mastermeme.ui.component.TopBar
+import com.rvcoding.mastermeme.ui.theme.BackgroundContainer
 import com.rvcoding.mastermeme.ui.theme.ButtonPrimary
 import com.rvcoding.mastermeme.ui.theme.Secondary
 import com.rvcoding.mastermeme.ui.theme.Tertiary
@@ -71,7 +79,7 @@ fun FAButton(
 ) {
     FilledIconButton(
         onClick = { onAction.invoke(Actions.YourMemes.OpenChoseTemplate) },
-        modifier = Modifier.size(65.dp),
+        modifier = Modifier.padding(end = 16.dp, bottom = 32.dp).size(65.dp),
         shape = RoundedCornerShape(12.dp),
         colors = IconButtonColors(
             containerColor = Secondary,
@@ -91,16 +99,37 @@ fun FAButton(
 
 @Composable
 fun MemeList(memes: List<Meme>) {
-    TODO("Not yet implemented")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(BackgroundContainer)
+    ) {
+
+    }
 }
 
 @Composable
 fun EmptyState() {
-    Image(
-        modifier = Modifier.size(200.dp),
-        imageVector = ImageVector.vectorResource(R.drawable.empty_list),
-        contentDescription = "Empty list"
-    )
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(BackgroundContainer),
+        contentAlignment = Alignment.Center
+    ) {
+        Column {
+            Image(
+                modifier = Modifier.size(200.dp),
+                imageVector = ImageVector.vectorResource(R.drawable.empty_list),
+                contentDescription = "Empty list"
+            )
+            Spacer(Modifier.height(32.dp))
+            Text(
+                text = stringResource(R.string.your_memes_empty_list),
+                color = Tertiary,
+                fontSize = 12.sp
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)

@@ -1,8 +1,10 @@
 package com.rvcoding.mastermeme.ui.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -24,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rvcoding.mastermeme.R
+import com.rvcoding.mastermeme.ui.theme.Background
 import com.rvcoding.mastermeme.ui.theme.Secondary
 import com.rvcoding.mastermeme.ui.theme.TextPrimary
 import com.rvcoding.mastermeme.ui.theme.TextSecondary
@@ -34,6 +37,8 @@ fun TopBar(item: TopBar) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .background(Background)
+            .padding(top = 32.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
             .height(32.dp)
     ) {
         when (item) {

@@ -46,10 +46,10 @@ fun MasterMemeTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context).copy(
                 background = Background,
-                surface = Background
+                surface = BackgroundContainer
             ) else dynamicLightColorScheme(context).copy(
                 background = Background,
-                surface = Background
+                surface = BackgroundContainer
             )
         }
         darkTheme -> DarkColorScheme
